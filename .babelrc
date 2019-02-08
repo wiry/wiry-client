@@ -1,0 +1,14 @@
+{
+    "plugins": ["@babel/plugin-proposal-class-properties"],
+    "presets": [
+        [
+            "@babel/preset-env",
+            {
+                "targets": {
+                    "node": "9",
+                    "browsers": "> 0.25%, not dead"
+                }
+            }
+        ]
+    ]
+}

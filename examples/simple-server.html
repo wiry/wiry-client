@@ -1,0 +1,26 @@
+<div class="app"></div>
+<script src="index.js"></script>
+<script>
+    var cookies = new Wiry.CookieStorage()
+
+    var namespace = "live"
+    var session = false
+
+    if (cookies.getItem(`${namespace}-session`) != undefined) {
+        session = cookies.getItem(`${namespace}-session`)
+    }
+
+    var app = document.querySelector(".app")
+    var endpoint = "http://127.0.0.1:8000/simple-server.php"
+
+    fetch(`${endpoint}${session ? `?${namespace}-session=${session}` : ""}`)
+        .then(function(response) {
+            return response.text()
+        })
+        .then(function(text) {
+            app.innerHTML = text
+
+            var client = new Wiry.Client({ endpoint, namespace })
+            client.attach()
+        })
+</script>

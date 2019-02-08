@@ -1,0 +1,22 @@
+{
+    "name": "@wiry/client",
+    "main": "build/index.js",
+    "author": "Christopher Pitt <cgpitt@gmail.com>",
+    "license": "MIT",
+    "scripts": {
+        "prebuild": "shx rm -rf ./build/*",
+        "build": "parcel build ./source/index.js --target browser --no-minify --out-dir ./build --cache-dir ./cache --global Wiry",
+        "serve": "serve ./examples"
+    },
+    "devDependencies": {
+        "@babel/core": "^7.2.2",
+        "@babel/plugin-proposal-class-properties": "^7.3.0",
+        "@babel/polyfill": "^7.2.5",
+        "parcel-bundler": "^1.11.0",
+        "serve": "^10.1.2",
+        "shx": "^0.3.2"
+    },
+    "dependencies": {
+        "cookie-storage": "^3.2.0"
+    }
+}
